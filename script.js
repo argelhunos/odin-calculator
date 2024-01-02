@@ -56,10 +56,12 @@ document.querySelectorAll('button').forEach((button) => {
 });
 
 function checkForExistingOperand() {
-    if (operator != "") {
+    if (operator != "" && argument2 != "") {
         display.textContent = operate(operator, argument1, argument2);
         argument1 = display.textContent;
         argument2 = "";
+    } else if (operator != "" && argument2 === ""){
+        display.textContent = display.textContent.slice(0, display.textContent.length-1);
     }
 }
 
