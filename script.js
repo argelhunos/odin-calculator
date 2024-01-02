@@ -33,10 +33,16 @@ document.querySelectorAll('button').forEach((button) => {
                 display.textContent += button.textContent;
                 break;
             case "=":
-                display.textContent = operate(operator, argument1, argument2);
-                argument1 = "";
-                argument2 = "";
-                operator = "";
+                // check if second argument doesn't exist
+                if (argument2 === "") {
+                    display.textContent = argument1;
+                    operator = "";
+                } else {
+                    display.textContent = operate(operator, argument1, argument2);
+                    argument1 = display.textContent;
+                    argument2 = "";
+                    operator = "";
+                }
                 break;
             default:
                 if (operator === "") {
