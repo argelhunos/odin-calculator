@@ -7,20 +7,29 @@ document.querySelectorAll('button').forEach((button) => {
     button.addEventListener('click', () => {
         switch (button.textContent) {
             case "CLEAR":
+                display.textContent = "";
                 argument1 = "";
                 argument2 = "";
                 operator = "";
                 break;
             case "+":
+                checkForExistingOperand("+");
                 operator = "+";
                 display.textContent += button.textContent;
                 break;
             case "-":
+                checkForExistingOperand("-");
                 operator = "-";
                 display.textContent += button.textContent;
                 break;
             case "X":
+                checkForExistingOperand("X");
                 operator = "X";
+                display.textContent += button.textContent;
+                break;
+            case "÷":
+                checkForExistingOperand("/");
+                operator = "/";
                 display.textContent += button.textContent;
                 break;
             case "=":
@@ -39,6 +48,14 @@ document.querySelectorAll('button').forEach((button) => {
         }
     })
 });
+
+function checkForExistingOperand(newOperator) {
+    if (operator != "") {
+        display.textContent = operate(operator, argument1, argument2);
+        argument1 = display.textContent;
+        argument2 = "";
+    }
+}
 
 function add(a, b) {
     return parseFloat(a)+parseFloat(b);
