@@ -6,6 +6,14 @@
     height: 600px;
 }
 
+.calculator #btn0 {
+    flex-grow: 1;
+}
+
+.calculator #btnclr {
+    width: 150px;
+}
+
 .calculator #display {
     width: 400px;
 }

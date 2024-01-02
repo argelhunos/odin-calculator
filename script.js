@@ -1,21 +1,59 @@
-let argument1 = 0;
-let argument2 = 0;
+let argument1 = "";
+let argument2 = "";
 let operator = "";
+const display = document.querySelector('#display');
+
+document.querySelectorAll('button').forEach((button) => {
+    button.addEventListener('click', () => {
+        switch (button.textContent) {
+            case "CLEAR":
+                argument1 = "";
+                argument2 = "";
+                operator = "";
+                break;
+            case "+":
+                operator = "+";
+                display.textContent += button.textContent;
+                break;
+            case "-":
+                operator = "-";
+                display.textContent += button.textContent;
+                break;
+            case "X":
+                operator = "X";
+                display.textContent += button.textContent;
+                break;
+            case "=":
+                display.textContent = operate(operator, argument1, argument2);
+                argument1 = "";
+                argument2 = "";
+                operator = "";
+                break;
+            default:
+                if (operator === "") {
+                    argument1 += button.textContent;
+                } else {
+                    argument2 += button.textContent;
+                }
+                display.textContent += button.textContent;
+        }
+    })
+});
 
 function add(a, b) {
-    return a+b;
+    return parseFloat(a)+parseFloat(b);
 }
 
 function subtract(a, b) {
-    return a-b;
+    return parseFloat(a)-parseFloat(b);
 }
 
 function multiply(a, b) {
-    return a*b;
+    return parseFloat(a)*parseFloat(b);
 }
 
 function divide(a, b) {
-    return a/b;
+    return parseFloat(a)/parseFloat(b);
 }
 
 function operate(op, num1, num2) {
@@ -24,7 +62,7 @@ function operate(op, num1, num2) {
             return add(num1, num2);
         case "-":
             return subtract(num1, num2);
-        case "*":
+        case "X":
             return multiply(num1, num2);
         case "/":
             return divide(num1, num2);
