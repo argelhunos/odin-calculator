@@ -1,9 +1,18 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #AEC6EF;
+}
+
 .calculator {
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
     width: 200px;
-    height: 600px;
+    /* height: 600px; */
+    border: 2px solid black;
+    border-radius: 3px;
 }
 
 .calculator #btn0 {
@@ -15,11 +24,34 @@
 }
 
 .calculator #display {
+    height: 75px;
     width: 400px;
+    padding: 32px;
+    font-family: 'Courier New', Courier, monospace;
+    box-sizing: border-box;
+    background-color: #272725;
+    color: white;
 }
 
 .calculator button {
     width: 50px;
     height: 50px;
-    flex: 0 0 auto;
+}
+
+button {
+    color: white;
+    border: 1px solid #272725;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.calculator .num-btn {
+    background-color: #5c5c5b;
+}
+
+.calculator .op-btn {
+    background-color: #fe9e0b;
+}
+
+.calculator #btnclr {
+    background-color: #3c3c3a;
 }

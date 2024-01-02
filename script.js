@@ -13,22 +13,22 @@ document.querySelectorAll('button').forEach((button) => {
                 operator = "";
                 break;
             case "+":
-                checkForExistingOperand("+");
+                checkForExistingOperand();
                 operator = "+";
                 display.textContent += button.textContent;
                 break;
             case "-":
-                checkForExistingOperand("-");
+                checkForExistingOperand();
                 operator = "-";
                 display.textContent += button.textContent;
                 break;
             case "X":
-                checkForExistingOperand("X");
+                checkForExistingOperand();
                 operator = "X";
                 display.textContent += button.textContent;
                 break;
             case "÷":
-                checkForExistingOperand("/");
+                checkForExistingOperand();
                 operator = "/";
                 display.textContent += button.textContent;
                 break;
@@ -55,7 +55,7 @@ document.querySelectorAll('button').forEach((button) => {
     })
 });
 
-function checkForExistingOperand(newOperator) {
+function checkForExistingOperand() {
     if (operator != "") {
         display.textContent = operate(operator, argument1, argument2);
         argument1 = display.textContent;
